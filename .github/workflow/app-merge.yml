@@ -1,0 +1,11 @@
+name: Deploy on merge
+'on':
+  push:
+    branches:
+      - master
+jobs:
+  build_and_deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: 'yarn && yarn build && yarn test'

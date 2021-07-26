@@ -1,0 +1,35 @@
+defaultSeverity: error
+extends:
+  - 'tslint:latest'
+  - 'tslint-react'
+  - 'tslint-eslint-rules'
+  - 'tslint-config-prettier'
+
+rules:
+  jsx-no-lambda: [false]
+  ordered-imports: [false]
+  object-literal-sort-keys: [false]
+  sort-imports: [true]
+  interface-name: [false]
+  no-submodule-imports:
+    [
+      true,
+      '$test',
+      '@testing-library/jest-dom',
+      'react-dates',
+      'react-datepicker',
+      'date-fns',
+    ]
+  no-implicit-dependencies:
+    [true, ['$test', '@testing-library/jest-dom', '@testing-library/react']]
+  variable-name:
+    - true
+    - ban-keywords
+    - check-format
+    - allow-leading-underscore
+    - allow-pascal-case
+  jsx-boolean-value: [true, 'never']
+  array-type: [true, 'generic']
+  cyclomatic-complexity:
+    options: [15]
+    severity: warning
