@@ -14,4 +14,13 @@ module.exports = {
       'identity-obj-proxy',
     '\\.(css|less|scss|sass)$': 'identity-obj-proxy',
   },
+  coveragePathIgnorePatterns: ['__tests__', '__mocks__'],
+  coverageThreshold: {
+    global: {
+      branches: 60,
+      functions: 70,
+      lines: 70,
+      statements: 70,
+    },
+  },
 };
