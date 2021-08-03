@@ -1,7 +1,7 @@
+import './reset.scss';
+
+import App from './App';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-ReactDOM.render(
-  <div className="container"> Base App </div>,
-  document.getElementById('root'),
-);
+ReactDOM.render(<App />, document.getElementById('root'));
