@@ -1,4 +1,4 @@
-## Jira Ticket: [JIRA-XXX](https://jira.io/browse/JIRA-XXX)
+## Jira Ticket: [JIRA-XXX](https://usd-dev.atlassian.net/browse/JIRA-000)
 
 ## Checklist
 

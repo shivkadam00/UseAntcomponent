@@ -1,0 +1,26 @@
+.container {
+  display: flex;
+  height: 100vh;
+
+  .navPanel {
+    width: 15rem;
+    background-color: #032550;
+  }
+
+  .contentPanel {
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+  }
+
+  .contentHeader {
+    position: sticky;
+    top: 0px;
+    z-index: 10;
+    width: 100%;
+    background-color: white;
+    height: 3.5rem;
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0.05), 0 0 3px rgba(0, 0, 0, 0.05),
+      0 2px 8px rgba(0, 0, 0, 0.05);
+  }
+}

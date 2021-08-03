@@ -1,26 +1,51 @@
+const { compilerOptions } = require('./tsconfig');
+const { pathsToModuleNameMapper } = require('ts-jest/utils');
+
 module.exports = {
-  roots: ['./src'],
-  testEnvironment: 'jsdom',
-  setupFilesAfterEnv: ['./jest.setup.ts'],
-  moduleFileExtensions: ['ts', 'tsx', 'js'],
-  testPathIgnorePatterns: ['node_modules/'],
+  collectCoverageFrom: ['**/*.js', '**/*.tsx', '!**/*.config.js'],
+  coverageDirectory: '<rootDir>/coverage',
+  coveragePathIgnorePatterns: [
+    '/node_modules/',
+    '<rootDir>/.vscode/',
+    '<rootDir>/build/',
+    '<rootDir>/coverage/',
+    '<rootDir>/typings/',
+    '<rootDir>/__tests__/',
+  ],
+  coverageReporters: ['html', 'json', 'text', 'lcov', 'clover', 'cobertura'],
+  coverageThreshold: {
+    global: {
+      branches: 0,
+      functions: 0,
+      lines: 0,
+      statements: 0,
+    },
+  },
+  testResultsProcessor: '<rootDir>/jest-unit-processor',
+  globals: {
+    'ts-jest': {
+      diagnostics: false,
+      tsconfig: 'tsconfig.jest.json',
+    },
+  },
+  preset: 'ts-jest/presets/js-with-ts',
+  rootDir: '.',
+  roots: ['<rootDir>/src/'],
+  testRegex: '(/__tests__/.*|(\\.|/)(test|spec))\\.tsx?$',
+  moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
   transform: {
     '^.+\\.tsx?$': 'ts-jest',
   },
-  testMatch: ['**/*.spec.(ts|tsx)', '**/*.test.(ts|tsx)'],
+  verbose: true,
+  transformIgnorePatterns: ['<rootDir>/node_modules/'],
   moduleNameMapper: {
-    // Mocks out all these file formats when tests are run
-    '\\.(jpg|ico|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$':
-      'identity-obj-proxy',
-    '\\.(css|less|scss|sass)$': 'identity-obj-proxy',
+    ...pathsToModuleNameMapper(compilerOptions.paths, {
+      prefix: '<rootDir>/src/',
+    }),
+    '(.*\\.gql)': '$1.tsx',
+    '\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$':
+      '<rootDir>/src/__mocks__/fileMock.js',
+    '\\.(s)?css(.*)$': 'identity-obj-proxy',
   },
-  coveragePathIgnorePatterns: ['__tests__', '__mocks__'],
-  coverageThreshold: {
-    global: {
-      branches: 60,
-      functions: 70,
-      lines: 70,
-      statements: 70,
-    },
-  },
+  testPathIgnorePatterns: ['<rootDir>/src/utils', '.*\\.mock\\.tsx'],
 };
