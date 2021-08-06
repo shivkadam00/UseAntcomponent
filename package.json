@@ -20,9 +20,9 @@
     "test": "jest --verbose",
     "test:coverage": "jest --coverage",
     "test:watch": "jest --watch",
-    "lint": "npm run lint-ts && npm run lint-style && npm run lint-prettier",
+    "lint": "yarn lint-ts && yarn lint-stylelint && yarn lint-prettier",
     "lint-ts": "tslint --config tslint.yaml --format stylish --project tsconfig.build.json -o tslint.xml",
-    "lint-style": "yarn stylelint src/**/*.css",
+    "lint-stylelint": "stylelint src/*/*/*.css src/*/*/*.less src/*/*/*.scss",
     "lint-prettier": "prettier-check src/**/*.tsx src/**/*.css"
   },
   "devDependencies": {
@@ -46,7 +46,7 @@
     "eslint-config-prettier": "8.3.0",
     "eslint-plugin-prettier": "3.4.0",
     "html-webpack-plugin": "5.3.2",
-    "husky": "7.0.1",
+    "husky": "=4.3.8",
     "identity-obj-proxy": "3.0.0",
     "import-sort-parser-typescript": "6.0.0",
     "jest": "27.0.6",
@@ -95,7 +95,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "yarn lint-stylelint && yarn lint && yarn test && yarn storybook:export"
+      "pre-commit": "yarn lint-stylelint && yarn lint && yarn test"
     }
   },
   "jest": {
