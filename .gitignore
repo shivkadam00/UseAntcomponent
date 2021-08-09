@@ -38,3 +38,7 @@ public/
 
 # linter files
 tslint.xml
+
+#yalc
+.yalc/
+yalc.lock

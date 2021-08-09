@@ -2,6 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
+const crypto = require('crypto');
 
 module.exports = {
   entry: path.resolve(__dirname, 'src', 'index.tsx'),
@@ -19,7 +20,16 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: ['style-loader', 'css-loader'],
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              importLoaders: 1,
+              // modules: true is not working and its not loading component .css files
+            },
+          },
+        ],
       },
       {
         test: /\.scss$/,
@@ -36,7 +46,7 @@ module.exports = {
     ],
   },
   resolve: {
-    extensions: ['.mjs', '.ts', '.tsx', '.js', '.json'],
+    extensions: ['.mjs', '.ts', '.tsx', '.js', '.json', '.css'],
     plugins: [
       new TsconfigPathsPlugin({
         configFile:
