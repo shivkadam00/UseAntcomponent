@@ -1,4 +1,4 @@
 {
   "extends": ["config:base"],
-  "ignoreDeps": ["husky"]
+  "ignoreDeps": ["husky", "yalc"]
 }
