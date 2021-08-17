@@ -63,7 +63,7 @@
     "style-loader": "3.2.1",
     "stylelint": "13.13.1",
     "stylelint-config-recommended": "5.0.0",
-    "ts-jest": "27.0.4",
+    "ts-jest": "27.0.5",
     "ts-transformer-imports": "0.4.3",
     "tsconfig-paths-webpack-plugin": "3.5.1",
     "tslint": "6.1.3",
