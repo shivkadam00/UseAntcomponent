@@ -16,6 +16,7 @@ export namespace Message {
     feedback_form: 'Feedback Form',
     page1_content: 'Page 1',
     page2_content: 'Page 2',
+    page_not_found_content: '|| 404 | Page Not Found ||',
   };
   export const common: Namespace = {
     loading: 'Loading...',
