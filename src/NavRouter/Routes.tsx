@@ -15,18 +15,21 @@ const routes = [
   {
     path: PATH_1,
     text: Message.navigation.path_1,
+    exact: true,
     new: false,
     main: () => <Page1 />,
   },
   {
     path: PATH_2,
     text: Message.navigation.path_2,
+    exact: true,
     new: true,
     main: () => <Page2 />,
   },
   {
     path: FEEDBACK_PATH,
     text: Message.navigation.feedback,
+    exact: true,
     new: false,
     main: () => <Feedback />,
   },

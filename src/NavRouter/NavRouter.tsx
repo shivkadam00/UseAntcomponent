@@ -1,5 +1,7 @@
-import { Route, Switch } from 'react-router-dom';
+import { Redirect, Route, Switch } from 'react-router-dom';
 
+import { PATH_NOT_FOUND } from '$utils/paths';
+import { PageNotFound } from '../pages';
 import React from 'react';
 import { routes } from './Routes';
 
@@ -14,6 +16,8 @@ const NavRouter = () => {
           children={<route.main />}
         />
       ))}
+      <Route path={PATH_NOT_FOUND} component={PageNotFound} />
+      <Redirect path="*" to={PATH_NOT_FOUND} />
     </Switch>
   );
 };
