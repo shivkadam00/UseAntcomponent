@@ -64,10 +64,8 @@ module.exports = {
     new CleanWebpackPlugin(),
   ],
   devServer: {
-    contentBase: path.join(__dirname, './src'),
     historyApiFallback: true,
     port: 3000,
-    hotOnly: true,
     compress: true,
     open: true,
   },
