@@ -7,8 +7,14 @@ import {
 import { Message } from '$utils/messages';
 import React from 'react';
 import classes from './Page1.module.scss';
+import { useKeycloak } from '@react-keycloak/web';
 
 const Page1 = () => {
+  const { initialized } = useKeycloak();
+  if (!initialized) {
+    return <h3>Loading ... !!!</h3>;
+  }
+
   return (
     <div className={classes.container}>
       {Message.pages.page1_content}
