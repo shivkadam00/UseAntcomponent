@@ -4,18 +4,19 @@ interface Namespace {
 
 export namespace Message {
   export const navigation: Namespace = {
+    welcome: 'Welcome',
     new: 'NEW',
-    project: 'PROJECT',
+    project: 'Foundation Project',
     feedback: 'Leave Feedback',
-    header_text: 'Header Text',
+    header_text: 'Foundation Header',
     home: 'Home',
-    path_1: 'Path 1',
-    path_2: 'Path 2',
+    path_1: 'Page 1',
+    path_2: 'Page 2',
   };
   export const pages: Namespace = {
     feedback_form: 'Feedback Form',
-    page1_content: 'Page 1',
-    page2_content: 'Page 2',
+    page1_content: 'Page 1 Content',
+    page2_content: 'Page 2 Content',
     page_not_found_content: '|| 404 | Page Not Found ||',
   };
   export const common: Namespace = {

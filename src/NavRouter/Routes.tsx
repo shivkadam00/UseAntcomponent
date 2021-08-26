@@ -1,4 +1,10 @@
-import { FEEDBACK_PATH, PATH_1, PATH_2, ROOT_PATH } from '$utils/paths';
+import {
+  FEEDBACK_PATH,
+  HOME_PATH,
+  PATH_1,
+  PATH_2,
+  ROOT_PATH,
+} from '$utils/paths';
 import { Feedback, Page1, Page2 } from '../pages';
 
 import { Message } from '$utils/messages';
@@ -12,6 +18,7 @@ const routes = [
     new: false,
     main: () => <Page1 />,
   },
+
   {
     path: PATH_1,
     text: Message.navigation.path_1,

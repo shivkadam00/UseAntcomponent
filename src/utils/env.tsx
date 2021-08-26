@@ -1,3 +1,6 @@
+export const FOUNDATION_UI_AUTH_PROVIDER: string =
+  process.env.FOUNDATION_UI_AUTH_PROVIDER || '';
+
 export const FOUNDATION_UI_AUTH_KEYCLOAK_URL: string =
   process.env.FOUNDATION_UI_AUTH_KEYCLOAK_URL || '';
 
