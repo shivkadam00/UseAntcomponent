@@ -12,6 +12,8 @@ export interface ProtectedRouteProps {
 const ProtectedRoute = ({ roles, children, ...rest }: ProtectedRouteProps) => {
   return (
     <Route {...rest}>
+      {!SigninManager.isKeycloakProvider() && children}
+
       {SigninManager.isKeycloakProvider() && SigninManager.hasRole(roles) ? (
         children
       ) : (
