@@ -1,28 +1,23 @@
 import { Landing, Placeholder } from '../pages';
 
-import { BrowserRouter } from 'react-router-dom';
 import React from 'react';
 import { ReactKeycloakProvider } from '@react-keycloak/web';
-import SigninManager from './../authentication';
+import { isKeycloakProvider } from '$utils/env';
 import keycloak from '../authentication/keycloak';
 
 const App = () => {
   return (
     <>
-      {SigninManager.isKeycloakProvider() ? (
+      {isKeycloakProvider() ? (
         <ReactKeycloakProvider
           authClient={keycloak}
           initOptions={{ onLoad: 'check-sso' }}
           LoadingComponent={<Placeholder />}
         >
-          <BrowserRouter>
-            <Landing />
-          </BrowserRouter>
+          <Landing />
         </ReactKeycloakProvider>
       ) : (
-        <BrowserRouter>
-          <Landing />
-        </BrowserRouter>
+        <Landing />
       )}
     </>
   );

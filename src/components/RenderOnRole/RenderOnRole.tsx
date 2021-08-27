@@ -1,5 +1,6 @@
 import React from 'react';
 import SigninManager from './../../authentication';
+import { isKeycloakProvider } from '$utils/env';
 
 export interface RenderOnRoleProps {
   roles: Array<string>;
@@ -7,7 +8,7 @@ export interface RenderOnRoleProps {
 }
 
 const RenderOnRole = ({ roles, children }: RenderOnRoleProps) => {
-  if (!SigninManager.isKeycloakProvider()) {
+  if (!isKeycloakProvider()) {
     return children;
   }
 

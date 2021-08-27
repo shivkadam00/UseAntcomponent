@@ -9,9 +9,7 @@ const Welcome = () => {
   return (
     <div className={classes.container}>
       <div>
-        <div>
-          <h1>{Message.welcome.text}</h1>
-        </div>
+        <h1>{Message.welcome.text}</h1>
         <div>
           <h2>
             {Message.welcome.hello}

@@ -1,12 +1,13 @@
 import React from 'react';
 import SigninManager from './../../authentication';
+import { isKeycloakProvider } from '$utils/env';
 
 export interface RenderOnAnonymousProps {
   children: React.ReactElement;
 }
 
 const RenderOnAnonymous = ({ children }: RenderOnAnonymousProps) => {
-  if (!SigninManager.isKeycloakProvider()) {
+  if (!isKeycloakProvider()) {
     return children;
   }
 

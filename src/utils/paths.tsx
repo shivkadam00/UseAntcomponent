@@ -1,4 +1,3 @@
-export const HOME_PATH = '/home';
 export const FEEDBACK_PATH = '/feedback';
 export const PATH_1 = '/path1';
 export const PATH_2 = '/path2';

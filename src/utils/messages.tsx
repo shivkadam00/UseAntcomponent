@@ -30,7 +30,7 @@ export namespace Message {
     logout: 'Logout',
   };
   export const welcome: Namespace = {
-    Text: 'Welcome Page',
+    text: 'Welcome Page',
     hello: 'Hello ',
     anonymous: 'Anonymous',
     auth_text: 'Please authenticate yourself!',

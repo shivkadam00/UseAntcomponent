@@ -3,16 +3,23 @@ import { Home, Welcome } from './../../pages';
 import React from 'react';
 import RenderOnAnonymous from '$components/RenderOnAnonymous';
 import RenderOnAuthenticated from '$components/RenderOnAuthenticated';
+import { isKeycloakProvider } from '$utils/env';
 
 const Landing = () => {
   return (
     <>
-      <RenderOnAnonymous>
-        <Welcome />
-      </RenderOnAnonymous>
-      <RenderOnAuthenticated>
+      {isKeycloakProvider() ? (
+        <>
+          <RenderOnAnonymous>
+            <Welcome />
+          </RenderOnAnonymous>
+          <RenderOnAuthenticated>
+            <Home />
+          </RenderOnAuthenticated>
+        </>
+      ) : (
         <Home />
-      </RenderOnAuthenticated>
+      )}
     </>
   );
 };

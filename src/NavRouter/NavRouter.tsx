@@ -18,6 +18,7 @@ const NavRouter = () => {
             children={<route.main />}
           />
         ))}
+
         <ProtectedRoute roles={[ADMIN_ROLE]} path={ADMIN_PATH}>
           <Admin />
         </ProtectedRoute>
