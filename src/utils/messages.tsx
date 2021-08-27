@@ -17,6 +17,7 @@ export namespace Message {
     feedback_form: 'Feedback Form',
     page1_content: 'Page 1 Content',
     page2_content: 'Page 2 Content',
+    admin: 'Admin Page',
     page_not_found_content: '|| 404 | Page Not Found ||',
   };
   export const common: Namespace = {

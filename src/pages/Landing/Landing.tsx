@@ -1,14 +1,18 @@
 import { Home, Welcome } from './../../pages';
 
 import React from 'react';
-import SigninManager from './../../authentication';
+import RenderOnAnonymous from '$components/RenderOnAnonymous';
+import RenderOnAuthenticated from '$components/RenderOnAuthenticated';
 
 const Landing = () => {
   return (
     <>
-      {!SigninManager.isLoggedIn() && <Welcome />}
-
-      {SigninManager.isLoggedIn() && <Home />}
+      <RenderOnAnonymous>
+        <Welcome />
+      </RenderOnAnonymous>
+      <RenderOnAuthenticated>
+        <Home />
+      </RenderOnAuthenticated>
     </>
   );
 };
