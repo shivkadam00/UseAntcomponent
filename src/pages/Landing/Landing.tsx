@@ -7,7 +7,6 @@ import RenderOnAuthenticated from '$components/RenderOnAuthenticated';
 const Landing = () => {
   return (
     <>
-      Test
       <RenderOnAnonymous>
         <Welcome />
       </RenderOnAnonymous>

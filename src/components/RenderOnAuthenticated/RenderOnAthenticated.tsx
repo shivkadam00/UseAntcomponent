@@ -6,7 +6,9 @@ export interface RRenderOnAuthenticatedProps {
 }
 
 const RenderOnAuthenticated = ({ children }: RRenderOnAuthenticatedProps) => {
-  return SigninManager.isLoggedIn() ? children : null;
+  return SigninManager.isKeycloakProvider() && SigninManager.isLoggedIn()
+    ? children
+    : null;
 };
 
 export default RenderOnAuthenticated;

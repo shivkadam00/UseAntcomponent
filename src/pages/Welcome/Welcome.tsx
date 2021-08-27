@@ -1,4 +1,5 @@
 import { AntButton } from 'ui-foundation-components-react';
+import { Message } from '$utils/messages';
 import React from 'react';
 import SigninManager from './../../authentication';
 import { capitalize } from '$utils/text';
@@ -9,20 +10,20 @@ const Welcome = () => {
     <div className={classes.container}>
       <div>
         <div>
-          <h1>Welcome Page</h1>
+          <h1>{Message.welcome.text}</h1>
         </div>
         <div>
           <h2>
-            Hello{' '}
+            {Message.welcome.hello}
             {SigninManager.getUsername()
               ? capitalize(SigninManager.getUsername())
-              : 'Anonymous'}
+              : Message.welcome.anonymous}
             !
           </h2>
         </div>
         {!SigninManager.isLoggedIn() && (
           <div>
-            <p>Please authenticate yourself!</p>
+            <p>{Message.welcome.auth_text}</p>
           </div>
         )}
       </div>
@@ -30,12 +31,12 @@ const Welcome = () => {
       <div>
         {!SigninManager.isLoggedIn() && (
           <AntButton size="middle" onClick={() => SigninManager.doLogin()}>
-            Login
+            {Message.auth.login}
           </AntButton>
         )}
         {SigninManager.isLoggedIn() && (
           <AntButton size="middle" onClick={() => SigninManager.doLogout()}>
-            Logout
+            {Message.auth.logout}
           </AntButton>
         )}
       </div>

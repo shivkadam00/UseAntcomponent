@@ -12,7 +12,11 @@ export interface ProtectedRouteProps {
 const ProtectedRoute = ({ roles, children, ...rest }: ProtectedRouteProps) => {
   return (
     <Route {...rest}>
-      {SigninManager.hasRole(roles) ? children : <NotAllowed />}
+      {SigninManager.isKeycloakProvider() && SigninManager.hasRole(roles) ? (
+        children
+      ) : (
+        <NotAllowed />
+      )}
     </Route>
   );
 };

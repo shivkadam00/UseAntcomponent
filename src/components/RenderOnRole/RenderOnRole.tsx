@@ -7,7 +7,9 @@ export interface RenderOnRoleProps {
 }
 
 const RenderOnRole = ({ roles, children }: RenderOnRoleProps) => {
-  return SigninManager.hasRole(roles) ? children : null;
+  return SigninManager.isKeycloakProvider() && SigninManager.hasRole(roles)
+    ? children
+    : null;
 };
 
 export default RenderOnRole;

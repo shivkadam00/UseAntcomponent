@@ -6,7 +6,9 @@ export interface RenderOnAnonymousProps {
 }
 
 const RenderOnAnonymous = ({ children }: RenderOnAnonymousProps) => {
-  return !SigninManager.isLoggedIn() ? children : null;
+  return SigninManager.isKeycloakProvider() && !SigninManager.isLoggedIn()
+    ? children
+    : null;
 };
 
 export default RenderOnAnonymous;

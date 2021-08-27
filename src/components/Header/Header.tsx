@@ -10,14 +10,14 @@ export default function Header() {
       <div>{Message.navigation.header_text}</div>
 
       <div>
-        {!SigninManager.isLoggedIn() && (
+        {SigninManager.isKeycloakProvider() && !SigninManager.isLoggedIn() && (
           <AntButton size="middle" onClick={() => SigninManager.doLogin()}>
-            Login
+            {Message.auth.login}
           </AntButton>
         )}
-        {SigninManager.isLoggedIn() && (
+        {SigninManager.isKeycloakProvider() && SigninManager.isLoggedIn() && (
           <AntButton size="middle" onClick={() => SigninManager.doLogout()}>
-            Logout
+            {Message.auth.logout}
           </AntButton>
         )}
       </div>

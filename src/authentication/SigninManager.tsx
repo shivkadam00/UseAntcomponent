@@ -2,6 +2,19 @@ import { FOUNDATION_UI_AUTH_PROVIDER } from '$utils/env';
 import { KEYCLOAK_AUTH } from '$utils/paths';
 import keycloak from './keycloak';
 
+export interface ISigninManager {
+  isKeycloakProvider: () => boolean;
+  doLogin: VoidFunction;
+  doLogout: VoidFunction;
+  isLoggedIn: () => boolean;
+  getToken: () => string;
+  updateToken: VoidFunction;
+  getUsername: () => string;
+  hasRole: (roles: Array<string>) => boolean;
+}
+
+const isKeycloakProvider = () => FOUNDATION_UI_AUTH_PROVIDER === KEYCLOAK_AUTH;
+
 const doLogin = keycloak.login;
 
 const doLogout = keycloak.logout;
@@ -16,10 +29,11 @@ const updateToken = (successCallback: any) =>
 // @ts-ignore
 const getUsername = () => keycloak.tokenParsed?.preferred_username;
 
-const hasRole = (roles: any) =>
-  roles.some((role: any) => keycloak.hasRealmRole(role));
+const hasRole = (roles: Array<string>) =>
+  roles.some((role: string) => keycloak.hasRealmRole(role));
 
-const SigninManager = {
+const SigninManager: ISigninManager = {
+  isKeycloakProvider,
   doLogin,
   doLogout,
   isLoggedIn,
@@ -29,7 +43,8 @@ const SigninManager = {
   hasRole,
 } as any;
 
-const SigninManagerDummy = {
+const SigninManagerDummy: ISigninManager = {
+  isKeycloakProvider: () => false,
   // tslint:disable-next-line:no-empty
   doLogin: () => {},
   // tslint:disable-next-line:no-empty
@@ -39,9 +54,7 @@ const SigninManagerDummy = {
   // tslint:disable-next-line:no-empty
   updateToken: () => {},
   getUsername: () => 'dummy-name',
-  hasRole: true,
+  hasRole: () => true,
 };
 
-export default FOUNDATION_UI_AUTH_PROVIDER === KEYCLOAK_AUTH
-  ? SigninManager
-  : SigninManagerDummy;
+export default isKeycloakProvider() ? SigninManager : SigninManagerDummy;

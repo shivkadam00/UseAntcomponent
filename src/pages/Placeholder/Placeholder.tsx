@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './Placeholder.module.scss';
 
 const Placeholder = () => {
-  return <div className={styles.container}>Placeholder</div>;
+  return <div className={styles.container} />;
 };
 
 export default Placeholder;
