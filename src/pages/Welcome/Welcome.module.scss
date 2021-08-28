@@ -1,0 +1,17 @@
+.container {
+    display: flex;
+    height: 100vh;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 60px;
+    background-color: var(--app-primary-background-color);
+    color: white;
+
+    h1, h2 {
+        color: white;
+    }
+
+    .button {
+       background-color: var(--app-primary-background-color);
+    }
+}

@@ -1,5 +1,12 @@
 @import 'ui-foundation-components-react/dist/index.css';
 
+:root {
+  --app-primary-color: #032550;
+  --app-primary-background-color: #032550;
+  --app-secondary-color: #40bd9e;
+  --app-secondary-background-color: #40bd9e;
+}
+
 .container {
-  background-color: gray;
+  background-color: var(--app-secondary-background-color);
 }
