@@ -1,0 +1,22 @@
+.container{
+    display: flex;
+    justify-content: center;
+}
+
+.feature{
+    display: flex;
+    flex-direction: row;
+    justify-content:space-around;
+    flex-wrap: wrap;
+}
+.item{
+    // justify-content: space-around;
+    border: 10px;
+    border: 10px solid black;
+    padding: 5px;
+}
+
+h1{
+    text-align: center;
+    margin: 50px;
+}

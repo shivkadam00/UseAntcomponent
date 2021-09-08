@@ -36,6 +36,8 @@ rules:
         '$utils',
         '@testing-library/jest-dom',
         '@testing-library/react',
+        '@ant-design/icons',
+        'antd',
       ],
     ]
   variable-name:
