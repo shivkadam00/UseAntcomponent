@@ -1,23 +1,18 @@
-import { Header } from '$components/Header';
-import Nav from '$components/Nav';
-import { NavRouter } from './../../NavRouter';
+import { Formval } from '$components/Formval';
 import React from 'react';
+import { Table2 } from '$components/Table2';
+import { Tablee } from '$components/Tablee';
 import classes from './Home.module.scss';
 
 const Home = () => {
   return (
-    <div className={classes.container}>
-      <div className={classes.navPanel}>
-        <Nav />
+    <>
+      <div className={classes.container}>
+        <Tablee />
+        <Table2 />
       </div>
-
-      <div className={classes.contentPanel}>
-        <div className={classes.contentHeader}>
-          <Header />
-        </div>
-        <NavRouter />
-      </div>
-    </div>
+      <Formval />
+    </>
   );
 };
 
